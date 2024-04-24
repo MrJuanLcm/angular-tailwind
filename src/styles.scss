@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.toast-top-right{
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    top: 20px;
+    right: 20px;
+    .toast{
+      padding: 10px;
+  
+    }
+    .toast-message{
+      color: #fff;
+  
+    }
+    .toast-success{
+      background-color: #14ae5c;
+    }
+    .toast-error{
+      background-color: #c12226;
+    }
+    .toast-info{
+      background-color: #016E97;
+    }
+  }

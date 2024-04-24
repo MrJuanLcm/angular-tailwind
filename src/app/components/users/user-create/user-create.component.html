@@ -1,0 +1,198 @@
+<div class="container mx-auto p-4 mt-20">
+  <h4 class="text-3xl font-bold mb-4">Registro de un Empleado</h4>
+  <div class="mx-auto mt-20">
+    <div class="flex flex-col">
+      <div class="border-b border-gray-200 shadow">
+        <form [formGroup]="formUser" (ngSubmit)="onSubmit()">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Primer Nombre</label
+              >
+              <input
+                type="text"
+                formControlName="primerNombre"
+                (ngModelChange)="generarCorreoElectronico()"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Se permite de la A a la Z, mayúscula, sin acentos ni
+              Ñ"
+              />
+              <p
+                id="outlined_error_help"
+                class="mt-2 text-xs text-red-600 dark:text-red-400"
+                *ngIf="formUser.controls.primerNombre.errors?.['pattern']"
+              >
+                <span class="font-medium"
+                  >Solo se permite mayúsculas sin acentos en la letra Ñ y un
+                  máximo de 20 letras</span
+                >
+              </p>
+            </div>
+
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Otros Nombres</label
+              >
+              <input
+                type="text"
+                formControlName="otrosNombres"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="John"
+              />
+              <p
+                id="outlined_error_help"
+                class="mt-2 text-xs text-red-600 dark:text-red-400"
+                *ngIf="formUser.controls.otrosNombres.errors?.['pattern']"
+              >
+                <span class="font-medium"
+                  >Solo se permite mayúsculas sin acentos en la letra Ñ y un
+                  máximo de 20 letras</span
+                >
+              </p>
+            </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Primer Apellido</label
+              >
+              <input
+                type="text"
+                formControlName="primerApellido"
+                (ngModelChange)="generarCorreoElectronico()"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="John"
+                required
+              />
+              <p
+                id="outlined_error_help"
+                class="mt-2 text-xs text-red-600 dark:text-red-400"
+                *ngIf="formUser.controls.primerApellido.errors?.['pattern']"
+              >
+                <span class="font-medium"
+                  >Solo se permite mayúsculas sin acentos en la letra Ñ y un
+                  máximo de 20 letras</span
+                >
+              </p>
+            </div>
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Segundo Apellido</label
+              >
+              <input
+                type="text"
+                formControlName="segundoApellido"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="John"
+                required
+              />
+              <p
+                id="outlined_error_help"
+                class="mt-2 text-xs text-red-600 dark:text-red-400"
+                *ngIf="formUser.controls.segundoApellido.errors?.['pattern']"
+              >
+                <span class="font-medium"
+                  >Solo se permite mayúsculas sin acentos en la letra Ñ y un
+                  máximo de 20 letras</span
+                >
+              </p>
+            </div>
+            <div>
+              <form [formGroup]="formUser" class="max-w-sm mx-auto">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Seleccione el país</label
+                >
+                <select
+                  formControlName="paisEmpleo"
+                  (ngModelChange)="generarCorreoElectronico()"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                >
+                  <option value="Estados Unidos">Estados Unidos</option>
+                  <option value="Colombia">Colombia</option>
+                </select>
+              </form>
+            </div>
+            <div>
+              <form [formGroup]="formUser" class="max-w-sm mx-auto">
+                <label class="block mb-2 text-sm font-medium text-gray-900"
+                  >Tipo de Identificación</label
+                >
+                <select
+                  formControlName="tipoidentificacion"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                >
+                  <option value="Cédula de Ciudadanía">
+                    Cédula de Ciudadanía
+                  </option>
+                  <option value="Cédula de Extranjería">
+                    Cédula de Extranjería
+                  </option>
+                  <option value="Pasaporte">Pasaporte</option>
+                  <option value="Permiso Especial">Permiso Especial</option>
+                </select>
+              </form>
+            </div>
+
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Número de Identificación</label
+              >
+              <input
+                type="text"
+                formControlName="numeroIdentificacion"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="John"
+                required
+              />
+              <p
+                id="outlined_error_help"
+                class="mt-2 text-xs text-red-600 dark:text-red-400"
+                *ngIf="formUser.controls.numeroIdentificacion.errors?.['pattern']"
+              >
+                <span class="font-medium"
+                  >Solo se permite mayúsculas sin acentos en la letra Ñ y un
+                  máximo de 20 letras</span
+                >
+              </p>
+            </div>
+
+            <div>
+              <label class="block mb-2 text-sm font-medium text-gray-900"
+                >Correo electrónico</label
+              >
+              <input
+                type="text"
+                [value]="correoElectronico"
+                placeholder="Correo Electrónico"
+                readonly
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              />
+            </div>
+
+            <!-- <div [formGroup]="formUser">
+              <input formControlName="primerNombreG" />
+              <input
+                [(ngModel)]="correoElectronico"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div> -->
+          </div>
+
+          <div class="flex justify-center gap-4 p-10">
+            <button
+              routerLink="/"
+              class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600"
+            >
+              Regresar
+            </button>
+            <button
+              type="submit"
+              [disabled]="!formUser.valid"
+              class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
